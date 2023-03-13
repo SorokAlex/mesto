@@ -1,0 +1,25 @@
+.content {
+  max-width: 880px;
+  width: calc(100% - 2 * 100px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+
+@media (max-width: 1024px) {
+  .content {
+    max-width: 800px;
+    width: calc(100% - 2 * 20px);
+  }
+}
+
+
+@media (max-width:800px) {
+  .content {
+    max-width: 760px;
+    width: calc(100% - 2 * 19px);
+    gap: 36px 0;
+  }
+}
