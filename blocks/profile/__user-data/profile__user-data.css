@@ -1,0 +1,25 @@
+.profile__user-data {
+  display: grid;
+  grid-template-columns: 294px 24px;
+  grid-template-rows: 49px 23px;
+  gap: 9px 18px;
+  align-self: center;
+}
+
+@media (max-width: 544px) {
+  .profile__user-data {
+    grid-template-columns: 220px 20px;
+    grid-template-rows: 35px 20px;
+    gap: 12px 15px;
+    padding-left: 30px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 320px) {
+  .profile__user-data {
+    grid-template-columns: 190px 18px;
+    grid-template-rows: 31px 17px;
+    gap: 9px 10px;
+  }
+}
