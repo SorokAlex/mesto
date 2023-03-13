@@ -1,0 +1,16 @@
+.place-card__like-btn {
+  margin: 0;
+  padding: 0;
+  background-size: 22px 19px;
+  width: 22px;
+  height: 19px;
+  flex-direction: column;
+  align-self: center;
+  border: 0;
+  transition: opacity .5s linear;
+}
+
+.place-card__like-btn:hover {
+  opacity: .5;
+  cursor: pointer;
+}

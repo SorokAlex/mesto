@@ -1,0 +1,9 @@
+.place-card {
+  margin: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px 0;
+  aspect-ratio: 2/1;
+}
