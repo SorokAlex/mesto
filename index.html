@@ -18,7 +18,6 @@
           alt="Логотип проекта Mesto."
         />
       </a>
-      <hr class="header__line" />
     </header>
     <main class="content">
       <section class="profile">
@@ -47,9 +46,9 @@
             alt="Храм на фоне горного хребта."
           />
           <div class="place-card__photo-info">
-            <p class="place-card__title">Карачаевск</p>
+            <h2 class="place-card__title">Карачаевск</h2>
             <button
-              class="place-card__like-btn place-card__like-btn_type_disabled"
+              class="place-card__like-btn"
               type="button"
             ></button>
           </div>
@@ -64,9 +63,9 @@
             alt="Гора Эльбрус на фоне заката."
           />
           <div class="place-card__photo-info">
-            <p class="place-card__title">Гора Эльбрус</p>
+            <h2 class="place-card__title">Гора Эльбрус</h2>
             <button
-              class="place-card__like-btn place-card__like-btn_type_disabled"
+              class="place-card__like-btn"
               type="button"
             ></button>
           </div>
@@ -81,9 +80,9 @@
             alt="Заснеженные склоны горы Домбай."
           />
           <div class="place-card__photo-info">
-            <p class="place-card__title">Домбай</p>
+            <h2 class="place-card__title">Домбай</h2>
             <button
-              class="place-card__like-btn place-card__like-btn_type_disabled"
+              class="place-card__like-btn"
               type="button"
             ></button>
           </div>
@@ -98,9 +97,9 @@
             alt="Монастырь в бежевом цвете на фоне горы Бештау."
           />
           <div class="place-card__photo-info">
-            <p class="place-card__title">Ставропольский край</p>
+            <h2 class="place-card__title">Ставропольский край</h2>
             <button
-              class="place-card__like-btn place-card__like-btn_type_disabled"
+              class="place-card__like-btn"
               type="button"
             ></button>
           </div>
@@ -115,9 +114,9 @@
             alt="Скала на берегу моря (мыс Тобзина)."
           />
           <div class="place-card__photo-info">
-            <p class="place-card__title">Мыс Тобзина</p>
+            <h2 class="place-card__title">Мыс Тобзина</h2>
             <button
-              class="place-card__like-btn place-card__like-btn_type_disabled"
+              class="place-card__like-btn"
               type="button"
             ></button>
           </div>
@@ -132,9 +131,9 @@
             alt="Храм на фоне моста."
           />
           <div class="place-card__photo-info">
-            <p class="place-card__title">Владивосток</p>
+            <h2 class="place-card__title">Владивосток</h2>
             <button
-              class="place-card__like-btn place-card__like-btn_type_disabled"
+              class="place-card__like-btn"
               type="button"
             ></button>
           </div>
@@ -145,37 +144,34 @@
       <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
     <section class="popup" aria-label="Всплывающее окно">
-      <article class="popup__container">
-        <button class="popup__close-btn"></button>
-        <form class="popup__form">
+      <div class="popup__container">
+        <button class="popup__close-btn" type="button"></button>
+        <form class="popup__form" name="редактировать-профиль">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input
             class="popup__text popup__text_type_name"
             type="text"
+            name="name"
             placeholder="Введите имя"
             required
           />
           <input
             class="popup__text popup__text_type_job"
             type="text"
+            name="job"
             placeholder="Введите назвение профессии"
             required
           />
           <button
-            class="popup__submit-btn popup__submit-btn_action_save"
+            class="popup__submit-btn"
             name="save"
             type="submit"
           >
             Сохранить
           </button>
         </form>
-      </article>
+      </div>
     </section>
-    <script src="./index.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
-
-<!-- value="Жак-Ив Кусто"
-value="Исследователь океана"
-<script src="./index.js"></script>
--->
