@@ -6,9 +6,6 @@ const editButton = document.querySelector('.profile__edit-btn');
 const closeButton = document.querySelector('.popup__close-btn');
 const popUp = document.querySelector('.popup');
 
-userName.textContent = 'Жак-Ив Кусто';
-userJob.textContent = 'Исследователь океана';
-
 
 function popUpOpen() {
     popUp.classList.add('popup_opened');
