@@ -11,3 +11,17 @@
   line-height: 1.21;
   outline: none;
 }
+
+.popup__text:first-of-type {
+  margin-bottom: 30px;
+}
+
+.popup__text:last-of-type {
+  margin-bottom: 48px;
+}
+
+@media (max-width: 380px) {
+  .popup__text:last-of-type {
+    margin-bottom: 45px;
+  }
+}
