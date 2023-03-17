@@ -1,6 +1,7 @@
 .place-card__like-btn {
   margin: 0;
   padding: 0;
+  background: url(../../../images/place-card__like-button-disabled.svg) center no-repeat;
   background-size: 22px 19px;
   width: 22px;
   height: 19px;
