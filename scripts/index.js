@@ -1,49 +1,45 @@
-const initialCards = [
-  {
-    name: 'Карачаевск',
-    link: 'https://images.unsplash.com/photo-1588584922681-745a2223f72c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fCVEMCVCQSVEMCVCMCVEMSU4MCVEMCVCMCVEMSU4NyVEMCVCMCVEMCVCNSVEMCVCMiVEMCVCRXxlbnwwfHwwfHw%3D&w=1000&q=80',
-    alt: 'Храм на фоне горного хребта.'
-  },
-  {
-    name: 'Гора Эльбрус',
-    link: 'https://images.unsplash.com/photo-1669809503782-733587336cc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
-    alt: 'Вид зелёное подножье и на гору Эльбрус.'
-  },
-  {
-    name: 'Домбай',
-    link: 'https://images.unsplash.com/photo-1640957551924-d14bbd5686bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    alt: 'Заснеженные склоны горы Домбай.'
-  },
-  {
-    name: 'Ставропольский край',
-    link: 'https://images.unsplash.com/photo-1620554918659-3f64bce0ac8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    alt: 'Монастырь бежевого цвете на фоне горы Бештау.'
-  },
-  {
-    name: 'Мыс Тобзина',
-    link: 'https://images.unsplash.com/photo-1629813366356-b0efcd428339?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
-    alt: 'Скала на берегу моря (мыс Тобзина).'
-  },
-  {
-    name: 'Владивосток',
-    link: 'https://images.unsplash.com/photo-1634887042266-3651a54b9a69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    alt: 'Храм на фоне моста.'
-  },
-];
+// const initialCards = [
+//   {
+//     name: 'Карачаевск',
+//     link: 'https://images.unsplash.com/photo-1588584922681-745a2223f72c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fCVEMCVCQSVEMCVCMCVEMSU4MCVEMCVCMCVEMSU4NyVEMCVCMCVEMCVCNSVEMCVCMiVEMCVCRXxlbnwwfHwwfHw%3D&w=1000&q=80',
+//   },
+//   {
+//     name: 'Гора Эльбрус',
+//     link: 'https://images.unsplash.com/photo-1669809503782-733587336cc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+//   },
+//   {
+//     name: 'Домбай',
+//     link: 'https://images.unsplash.com/photo-1640957551924-d14bbd5686bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+//   },
+//   {
+//     name: 'Ставропольский край',
+//     link: 'https://images.unsplash.com/photo-1620554918659-3f64bce0ac8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+//   },
+//   {
+//     name: 'Мыс Тобзина',
+//     link: 'https://images.unsplash.com/photo-1629813366356-b0efcd428339?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
+//   },
+//   {
+//     name: 'Владивосток',
+//     link: 'https://images.unsplash.com/photo-1634887042266-3651a54b9a69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+//   },
+// ];
 
 //Создаем перемменные для работы с попап "редактирования профиля"
 const popUpEditProfile = document.querySelector('.popup_type_edit-profile');
+const popUpFormEditProfile = document.querySelector('.popup__form_type_edit');
 const editButton = document.querySelector('.profile__edit-btn');
-let userName = document.querySelector('.profile__user-name');
-let userJob = document.querySelector('.profile__user-job');
-let nameInput = document.querySelector('.popup__text_type_name');
-let jobInput = document.querySelector('.popup__text_type_job');
+const userName = document.querySelector('.profile__user-name');
+const userJob = document.querySelector('.profile__user-job');
+const nameInput = document.querySelector('.popup__text_type_name');
+const jobInput = document.querySelector('.popup__text_type_job');
 
 //Создаем пременные для работы с попап "новое место"
 const popUpAddPlaceCard = document.querySelector('.popup_type_add-place-card');
+const popUpFormAddPlaceCard = document.querySelector('.popup__form_type_add');
 const addButton = document.querySelector('.profile__add-btn');
-let titleInput = document.querySelector('.popup__text_type_title');
-let linkInput = document.querySelector('.popup__text_type_link');
+const titleInput = document.querySelector('.popup__text_type_title');
+const linkInput = document.querySelector('.popup__text_type_link');
 
 
 //Создаем переменные для работы с попап "открытие картинки"
@@ -99,8 +95,7 @@ const handleFormSubmitProfile = (evt) => {
 //Функция открытия попапа добавления нового места
 addButton.addEventListener('click', () => {
   openPopUp(popUpAddPlaceCard);
-  titleInput.value = '';
-  linkInput.value = '';
+  popUpFormAddPlaceCard.reset();
 });
 
 //Функция сабмита для создания нового места
@@ -109,7 +104,6 @@ const handleFormSubmitPlace = (evt) => {
   renderPlace({
     name: titleInput.value,
     link: linkInput.value,
-    alt: `${titleInput.value}`,
   });
   closePopUp(popUpAddPlaceCard);
 };
@@ -125,7 +119,7 @@ const handleFullSizePhoto = (photo) => {
 };
 
 //Функция добавления нового места в начало
-let renderPlace = (placeCard) => {
+const renderPlace = (placeCard) => {
   placesList.prepend(createPlace(placeCard));
 };
 
@@ -148,11 +142,11 @@ const createPlace = (place) => {
   const newPlace = placeTemplate.cloneNode(true);
   const deleteButtonPlace = newPlace.querySelector('.place-card__delete-btn');
   const likeButtonPlace =  newPlace.querySelector('.place-card__like-btn');
-  let placeTitle = newPlace.querySelector('.place-card__title');
-  let placePhoto = newPlace.querySelector('.place-card__photo');
+  const placeTitle = newPlace.querySelector('.place-card__title');
+  const placePhoto = newPlace.querySelector('.place-card__photo');
   placeTitle.textContent = place.name;
   placePhoto.setAttribute('src', place.link);
-  placePhoto.setAttribute('alt', place.alt);
+  placePhoto.setAttribute('alt', `${place.alt}`);
 
   handleDeleteButtonPlace(deleteButtonPlace);
   handleLikeButtonPlace(likeButtonPlace);
@@ -167,5 +161,5 @@ initialCards.forEach((placeCard) => {
 });
 
 //Слушатели событий сохранения/отправки заполненной формы
-popUpEditProfile.addEventListener('submit', handleFormSubmitProfile);
-popUpAddPlaceCard.addEventListener('submit', handleFormSubmitPlace);
+popUpFormEditProfile.addEventListener('submit', handleFormSubmitProfile);
+popUpFormAddPlaceCard.addEventListener('submit', handleFormSubmitPlace);
