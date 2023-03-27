@@ -1,4 +1,4 @@
-//Создаем перемменные для работы с попап "редактирования профиля"
+//Создаем перемменные для работы с попап 'редактирования профиля'
 const popUpEditProfile = document.querySelector('.popup_type_edit-profile');
 const popUpFormEditProfile = document.querySelector('.popup__form_type_edit');
 const editButton = document.querySelector('.profile__edit-btn');
@@ -7,7 +7,7 @@ const userJob = document.querySelector('.profile__user-job');
 const nameInput = document.querySelector('.popup__text_type_name');
 const jobInput = document.querySelector('.popup__text_type_job');
 
-//Создаем пременные для работы с попап "новое место"
+//Создаем пременные для работы с попап 'новое место'
 const popUpAddPlaceCard = document.querySelector('.popup_type_add-place-card');
 const popUpFormAddPlaceCard = document.querySelector('.popup__form_type_add');
 const addButton = document.querySelector('.profile__add-btn');
@@ -15,7 +15,7 @@ const titleInput = document.querySelector('.popup__text_type_title');
 const linkInput = document.querySelector('.popup__text_type_link');
 
 
-//Создаем переменные для работы с попап "открытие картинки"
+//Создаем переменные для работы с попап 'открытие картинки'
 const popUpFullSizePhoto = document.querySelector('.popup_type_full-size-photo');
 const popUpPhoto =  document.querySelector('.popup__figure-photo');
 const popUpPhotoCaption =  document.querySelector('.popup__figure-photo-caption');
@@ -34,27 +34,78 @@ const closeButtons = document.querySelectorAll('.popup__close-btn');
 
 //Функция открытия попапа
 const openPopUp = (popUps) => {
-  popUps.classList.add("popup_opened");
+  popUps.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEscClosePopUp);
 };
 
 //Функция закрытия попапа
 const closePopUp = (popUps) => {
-  popUps.classList.remove("popup_opened");
+  popUps.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleEscClosePopUp);
 };
 
-//Универсальное закрытие любого попапа
+//Универсальное закрытие любого попапа (кнпка Х)
 closeButtons.forEach((button) => {
   button.addEventListener('click', (evt) => {
-    const closestPopUp = evt.target.closest(".popup");
+    const closestPopUp = evt.target.closest('.popup');
     closePopUp(closestPopUp);
   });
 });
+
+//Управление закрытием попапов (кнопка Esc)
+const handleEscClosePopUp = (evt) => {
+  if (evt.key === 'Escape') {
+    const openedPopUp = document.querySelector('.popup_opened');
+    closePopUp(openedPopUp);
+  }
+};
+
+//Закрытие попапа при (нажатие на overlay)
+popUps.forEach((popUp) => {
+  popUp.addEventListener('mousedown', (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closePopUp(popUp);
+    }
+  });
+});
+
+
+//Объект валидации
+const objectValidation = {
+  inputSelector: '.popup__text',
+  inputErrorClass: 'popup__text_type_error',
+  submitButtonSelector: '.popup__submit-btn',
+  submitButtonDisabledClass: 'popup__submit-btn_disabled',
+};
+
+
+//Сброс полей валидации
+const resetValidation = (objectValidation) => {
+  resetInput(objectValidation);
+  resetSubmitButton(objectValidation);
+};
+const resetInput = (objectValidation) => {
+  const inputList = document.querySelectorAll(objectValidation.inputSelector);
+  inputList.forEach((inputElement) => {
+    inputElement.classList.remove(objectValidation.inputErrorClass);
+  });
+};
+const resetSubmitButton = (objectValidation) => {
+  const submitButton = document.querySelectorAll(
+    objectValidation.submitButtonSelector
+  );
+  submitButton.forEach((submitButton) => {
+    submitButton.classList.add(objectValidation.submitButtonDisabledClass);
+    submitButton.setAttribute('disabled', '');
+  });
+};
 
 //Функция открытия попапа редактирования профиля
 editButton.addEventListener('click', () => {
 openPopUp(popUpEditProfile);
 nameInput.value = userName.textContent;
 jobInput.value = userJob.textContent;
+resetValidation(objectValidation);
 });
 
 //Функция сабмита для редактирования профиля
@@ -78,6 +129,8 @@ const handleFormSubmitPlace = (evt) => {
     name: titleInput.value,
     link: linkInput.value,
   });
+  popUpAddPlaceCard.reset();
+  resetValidation(objectValidation);
   closePopUp(popUpAddPlaceCard);
 };
 
@@ -119,7 +172,7 @@ const createPlace = (place) => {
   const placePhoto = newPlace.querySelector('.place-card__photo');
   placeTitle.textContent = place.name;
   placePhoto.setAttribute('src', place.link);
-  placePhoto.setAttribute('alt', `${place.alt}`);
+  placePhoto.setAttribute('alt', `${place.name}`);
 
   handleDeleteButtonPlace(deleteButtonPlace);
   handleLikeButtonPlace(likeButtonPlace);
