@@ -1,7 +1,7 @@
 .place-card__delete-btn {
   margin: 0;
   padding: 0;
-  background: url(../../../images/place-card__delete-button.svg) center/cover no-repeat;
+  background: url(../../../images/place-card__delete-button.svg) center/cover no-repeat transparent;
   width: 18px;
   height: 19px;
   flex-direction: column;
