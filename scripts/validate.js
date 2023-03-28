@@ -7,9 +7,9 @@ const validationConfig = {
   errorClass: 'popup__text-error',
 };
 
-const handleErrorShowing = (event, validationConfig) => {
-  const input = event.target;
-  const inputId = input.inputId;
+const handleErrorShowing = (evt, validationConfig) => {
+  const input = evt.target;
+  const inputId = input.id;
   const errorElement = document.querySelector(`.${inputId}-error`);
 
   if (!input.validity.valid) {
@@ -17,7 +17,7 @@ const handleErrorShowing = (event, validationConfig) => {
     errorElement.textContent = input.validationMessage;
   } else {
     input.classList.remove(validationConfig.inputErrorClass);
-    errorElement.textContent = '';
+    errorElement.textContent = "";
   }
 };
 
@@ -38,8 +38,8 @@ const setInputListeners = (formElement, validationConfig) => {
     formElement.querySelectorAll(validationConfig.inputSelector)
   );
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', (event) => {
-      handleErrorShowing(event, validationConfig);
+    inputElement.addEventListener("input", (evt) => {
+      handleErrorShowing(evt, validationConfig);
     });
   });
 };
@@ -49,10 +49,10 @@ const enableValidation = (validationConfig) => {
     document.querySelectorAll(validationConfig.formSelector)
   );
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', (event) => {
-      event.preventDefault();
+    formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
     });
-    formElement.addEventListener('input', () => {
+    formElement.addEventListener("input", () => {
       toggleButtonState(formElement, validationConfig);
     });
     setInputListeners(formElement, validationConfig);

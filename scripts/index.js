@@ -4,15 +4,15 @@ const popUpFormEditProfile = document.querySelector('.popup__form_type_edit');
 const editButton = document.querySelector('.profile__edit-btn');
 const userName = document.querySelector('.profile__user-name');
 const userJob = document.querySelector('.profile__user-job');
-const nameInput = document.querySelector('.popup__text_type_name');
-const jobInput = document.querySelector('.popup__text_type_job');
+const nameInput = document.querySelector('#text-name');
+const jobInput = document.querySelector('#text-job');
 
 //Создаем пременные для работы с попап 'новое место'
 const popUpAddPlaceCard = document.querySelector('.popup_type_add-place-card');
 const popUpFormAddPlaceCard = document.querySelector('.popup__form_type_add');
 const addButton = document.querySelector('.profile__add-btn');
-const titleInput = document.querySelector('.popup__text_type_title');
-const linkInput = document.querySelector('.popup__text_type_link');
+const titleInput = document.querySelector('#text-title');
+const linkInput = document.querySelector('#url');
 
 
 //Создаем переменные для работы с попап 'открытие картинки'
@@ -119,7 +119,6 @@ const handleFormSubmitProfile = (evt) => {
 //Функция открытия попапа добавления нового места
 addButton.addEventListener('click', () => {
   openPopUp(popUpAddPlaceCard);
-  popUpFormAddPlaceCard.reset();
 });
 
 //Функция сабмита для создания нового места
@@ -129,7 +128,7 @@ const handleFormSubmitPlace = (evt) => {
     name: titleInput.value,
     link: linkInput.value,
   });
-  popUpAddPlaceCard.reset();
+  popUpFormAddPlaceCard.reset();
   resetValidation(objectValidation);
   closePopUp(popUpAddPlaceCard);
 };
